@@ -1,0 +1,64 @@
+//helps to define the colors you need
+
+$default-font-color: #000;
+$background-color: #4e90e2;
+$container-bgcolor: #f2f2f2;
+$container-bordercolor: #000;
+$textbox-bordercolor: lightgray;
+$button-textcolor: #fff;
+$button-hovercolor: #003;
+$add-button-color: #4caf50;
+$clear-button-color: #9f6060;
+
+/*for inserting media */
+@mixin mq($size) /* <-- Defines a reusable block of code named mq that accepts an aregument called size*/{
+    @media only screen and (min-width: $size) /*Media query*/{
+        @content;
+    } /* injects whatever CSS rule that gets passed into the mixin when you call it */
+}
+
+/* Example:
+
+    .sidebar {
+    width: 100%;
+}
+@media only screen and (min-width: 768px) {
+    .sidebar {
+        width: 30%;
+    }
+}
+
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-size: 16px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: $default-font-color;
+    width: 100%;
+    min-height: 100%;
+    @include mq(768px) {
+        font-size: 22px
+    } /* CSS media query that targets screens width 768 px or wider (tablets to desktops) */
+    /* A CSS media query is a a core technique in responsive web design that applies a block of CSS styles only if a specific condition—such as a device's screen width, resolution, or orientation—is me */
+}
+
+body {
+    padding: 20px;
+    background-color: $background-color;
+}
+
+section {
+    background-color: $container-bgcolor;
+    width: 90%;
+    max-width: 700px; /* larger screens */
+    margin: auto;
+    border: 1px solid $container-bordercolor;
+    border-radius: 10px;
+}

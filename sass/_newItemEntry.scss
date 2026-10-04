@@ -1,0 +1,38 @@
+.newItemEntry {
+    position: sticky; /*don't want add item area to scroll off screen; instead  when it gets to zero, it will stick to the top and the list will scroll underneath */
+    top: 0;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+
+    form {
+    display: flex;
+    justify-content: space-between;
+
+        label {
+            position: absolute;
+            left: -100000px;  /* going to be way off screen*/
+        }
+
+        input[type="text"] /*Specifies which type you are selecting" */ {
+            width: 80%;
+            font-size: 1.25rem;
+            border: 2px solid $textbox-bordercolor;
+            border-radius: 10px;
+            padding: 0.75rem;
+            outline: none; /* must include but since we have hover it's fine -- alt z */
+        }
+
+        input[type="text"]:focus, input[type="text"]:hover {
+            box-shadow: 4px 2px 5px #000;
+        }
+
+        button {
+            font-size: 1.25rem;
+            background-color: $add-button-color;
+            padding: 0.75rem;
+            @include mq(768px) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
